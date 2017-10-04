@@ -24,6 +24,7 @@ class LinkedList
     count = 0
     if @head != nil
       temp = @head
+      count += 1
       while temp.next_node != nil
         count += 1
         temp.next_node
@@ -32,5 +33,5 @@ class LinkedList
     return count
   end
 
-  
+
 end

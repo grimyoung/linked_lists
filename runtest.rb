@@ -3,5 +3,6 @@ require_relative 'linkedlist'
 
 test = LinkedList.new("5")
 p test.head
-p test.to_s
-
+test.to_s
+p test.size
+p test.tail

@@ -11,7 +11,7 @@ class LinkedList
       while temp.next_node != nil
         temp = temp.next_node
       end
-      @temp.next_node = Node.new(value,nil)
+      temp.next_node = Node.new(value,nil)
     end
   end
 
@@ -32,18 +32,21 @@ class LinkedList
     return count
   end
 
-
+#not sure if it should just return head node value + next_node?
   def head
-    return @head
+    return @head.value, @head.next_node
   end
 
+#incomplete
   def tail
     temp = @head
     while temp.next_node != nil
       temp = temp.next_node
     end
+    return temp
   end
 
+#incomplete
   def at(index)
     temp = @head
     index.times do 
@@ -62,5 +65,6 @@ class LinkedList
       print "(#{temp.value}) -> "
       temp = temp.next_node
     end
+    puts "(#{temp.value}) -> nil"
   end
 end

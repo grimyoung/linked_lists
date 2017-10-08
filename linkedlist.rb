@@ -32,12 +32,11 @@ class LinkedList
     return count
   end
 
-#not sure if it should just return head node value + next_node?
   def head
-    return @head.value, @head.next_node
+    return @head
   end
 
-#incomplete
+
   def tail
     temp = @head
     while temp.next_node != nil
@@ -46,7 +45,6 @@ class LinkedList
     return temp
   end
 
-#incomplete
   def at(index)
     temp = @head
     index.times do 
@@ -59,12 +57,55 @@ class LinkedList
     return temp
   end
 
-  def to_s
+  def pop
+    penult = @head
+    temp = @head.next_node
+    if temp == nil
+      @head = nil
+      return @head
+    else
+      while temp.next_node != nil
+        penult = penult.next_node
+        temp = temp.next_node
+      end
+    end
+    penult.next_node = nil
+  end
+
+  def contains?(value)
     temp = @head
     while temp.next_node != nil
-      print "(#{temp.value}) -> "
+      if temp.value == value
+        return true
+      end
       temp = temp.next_node
     end
-    puts "(#{temp.value}) -> nil"
+    return false
+  end
+
+  def find(data)
+    index = 0
+    temp = @head
+    while temp.next_node != nil
+      if temp.value == data
+        return index
+      end
+      index += 1
+      temp = temp.next_node
+    end
+    return nil
+  end
+  
+  def to_s
+    temp = @head
+    if temp ==nil
+      puts "nil"
+    else
+      while temp.next_node != nil
+        print "(#{temp.value}) -> "
+        temp = temp.next_node
+      end
+      puts "(#{temp.value}) -> nil"
+    end
   end
 end
